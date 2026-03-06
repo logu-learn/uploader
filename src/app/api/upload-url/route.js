@@ -2,10 +2,11 @@ import { NextResponse } from 'next/server';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
-const REGION = process.env.AWS_REGION || 'eu-north-1';
+// New upload bucket and region
+const REGION = process.env.AWS_REGION || 'ap-south-1';
 const s3Client = new S3Client({ region: REGION });
 
-const BUCKET_NAME = process.env.S3_UPLOAD_BUCKET || 'uploader-project9080';
+const BUCKET_NAME = process.env.S3_UPLOAD_BUCKET || 'uploads-bucket9080';
 
 export const runtime = 'nodejs';
 

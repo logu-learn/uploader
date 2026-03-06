@@ -1,0 +1,14 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "AWS Lambda image watermark processor",
+  "main": "index.js",
+  "type": "commonjs",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"No tests defined\""
+  },
+  "dependencies": {
+    "jimp": "0.22.10"
+  }
+}

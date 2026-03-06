@@ -6,13 +6,15 @@
 
 const { S3Client, PutBucketCorsCommand } = require('@aws-sdk/client-s3');
 
-const BUCKET_NAME = process.env.S3_UPLOAD_BUCKET || 'uploader-project9080';
-const REGION = process.env.AWS_REGION || 'eu-north-1';
+const BUCKET_NAME = process.env.S3_UPLOAD_BUCKET || 'uploads-bucket9080';
+const REGION = process.env.AWS_REGION || 'ap-south-1';
 
 const corsRules = {
   CORSRules: [
     {
       AllowedOrigins: ['http://localhost:3000', 'http://127.0.0.1:3000'],
+      // Note: S3 CORS AllowedMethods does NOT include OPTIONS.
+      // Browsers send OPTIONS as a preflight, but you allow the *actual* methods (e.g. PUT).
       AllowedMethods: ['GET', 'PUT', 'HEAD'],
       AllowedHeaders: ['*'],
       ExposeHeaders: ['ETag'],
